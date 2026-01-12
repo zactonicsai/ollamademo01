@@ -455,7 +455,6 @@ The response will contain **Python-only FastAPI code** with no markdown.
 
 ## GitHub README.md (Template)
 
-````md
 # Ollama + FastAPI + ChromaDB (Local RAG Demo)
 
 A local, Docker-based demo showing how to combine **Ollama**, **FastAPI**, and **ChromaDB** to build a deterministic, Python-only FastAPI code generator using Retrieval-Augmented Generation (RAG).
