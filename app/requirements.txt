@@ -2,6 +2,6 @@
 fastapi
 uvicorn[standard]
 httpx
-
+sentence-transformers
 chromadb
 fastembed
