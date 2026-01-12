@@ -10,9 +10,10 @@ services:
     entrypoint: ["/bin/sh", "-lc"]
     command: >
       "ollama serve &
-       sleep 1 &&
-       sh /models/init-ollama.sh &&
-       tail -f /dev/null"
+      sleep 1 &&
+      sh /models/init-ollama.sh &&
+      tail -f /dev/null"
+
     restart: unless-stopped
 
   chroma:

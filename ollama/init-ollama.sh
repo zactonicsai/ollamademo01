@@ -3,12 +3,15 @@ set -eu
 
 echo "==> Starting Ollama init..."
 
-# Wait for Ollama HTTP server to come up
+# Use local loopback inside container (ollama serve listens on 0.0.0.0:11434)
 OLLAMA_HOST="${OLLAMA_HOST:-http://127.0.0.1:11434}"
 
 echo "==> Waiting for Ollama API at ${OLLAMA_HOST} ..."
 i=0
-until wget -qO- "${OLLAMA_HOST}/api/tags" >/dev/null 2>&1; do
+while :; do
+  if wget -qO- "${OLLAMA_HOST}/api/tags" >/dev/null 2>&1; then
+    break
+  fi
   i=$((i+1))
   if [ "$i" -ge 60 ]; then
     echo "ERROR: Ollama API did not become ready in time."
